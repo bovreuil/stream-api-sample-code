@@ -35,6 +35,8 @@
   <ItemGroup>
     <Compile Include="Auth\AppKeyAndSession.cs" />
     <Compile Include="Auth\AppKeyAndSessionProvider.cs" />
+    <Compile Include="Auth\DummyAppKeyAndSessionProvider.cs" />
+    <Compile Include="Auth\IAppKeyAndSessionProvider.cs" />
     <Compile Include="Cache\OrderMarketSnap.cs" />
     <Compile Include="Cache\LevelPriceSize.cs" />
     <Compile Include="Cache\Market.cs" />

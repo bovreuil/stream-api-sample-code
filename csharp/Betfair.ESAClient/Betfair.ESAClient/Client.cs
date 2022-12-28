@@ -29,7 +29,7 @@ namespace Betfair.ESAClient
         /// <summary>
         /// Handles session creation
         /// </summary>
-        private AppKeyAndSessionProvider _sessionProvider;
+        private IAppKeyAndSessionProvider _sessionProvider;
         /// <summary>
         /// Handles request / response correlation
         /// </summary>
@@ -120,7 +120,7 @@ namespace Betfair.ESAClient
         /// <param name="hostName"></param>
         /// <param name="port"></param>
         /// <param name="sessionProvider"></param>
-        public Client(string hostName, int port, AppKeyAndSessionProvider sessionProvider)
+        public Client(string hostName, int port, IAppKeyAndSessionProvider sessionProvider)
         {
             _hostName = hostName;
             _port = port;

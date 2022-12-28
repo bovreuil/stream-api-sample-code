@@ -14,7 +14,8 @@ namespace Betfair.ESAClient.Auth {
     /// <summary>
     /// Utility class to provide a session & token via identity SSO
     /// </summary>
-    public class AppKeyAndSessionProvider {
+    public class AppKeyAndSessionProvider : IAppKeyAndSessionProvider
+    {
         private string _appkey;
         private string _host;
         private string _password;
