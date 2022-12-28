@@ -46,6 +46,7 @@
     <Compile Include="ClientCacheTest.cs" />
     <Compile Include="ClientTest.cs" />
     <Compile Include="Impl\RequestResponseProcessorTest.cs" />
+    <Compile Include="Network\TcpConnectionServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Retry.cs" />
   </ItemGroup>

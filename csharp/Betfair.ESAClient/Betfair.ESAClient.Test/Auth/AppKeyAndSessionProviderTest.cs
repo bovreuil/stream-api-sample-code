@@ -7,7 +7,8 @@ namespace Betfair.ESAClient.Test.Auth {
     public class AppKeyAndSessionProviderTest : BaseTest {
         [Test]
         public void TestValidSession() {
-            var session = ValidSessionProvider.GetOrCreateNewSession();
+            // var session = ValidSessionProvider.GetOrCreateNewSession();
+            var session = DummySessionProvider.GetOrCreateNewSession();
             Assert.IsNotNull(session);
         }
 

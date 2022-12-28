@@ -18,6 +18,11 @@ namespace Betfair.ESAClient.Test {
         public string UserName => (string) TestContext.Parameters["UserName"];
         public string Password => (string) TestContext.Parameters["Password"];
 
+        public IAppKeyAndSessionProvider DummySessionProvider => new DummyAppKeyAndSessionProvider(SsoHost,
+            AppKey,
+            UserName,
+            Password);
+
         public AppKeyAndSessionProvider ValidSessionProvider => new AppKeyAndSessionProvider(SsoHost,
             AppKey,
             UserName,
