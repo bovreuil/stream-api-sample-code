@@ -1,26 +1,28 @@
 ﻿using System.IO;
 using System.Security.Authentication;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Betfair.ESAClient.Test.Auth {
-    [TestClass]
+    [TestFixture]
     public class AppKeyAndSessionProviderTest : BaseTest {
-        [TestMethod]
+        [Test]
         public void TestValidSession() {
             var session = ValidSessionProvider.GetOrCreateNewSession();
             Assert.IsNotNull(session);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(IOException))]
+        [Test]
         public void TestInvalidHost() {
-            InvalidHostSessionProvider.GetOrCreateNewSession();
+            Assert.Catch<IOException>(() =>
+                InvalidHostSessionProvider.GetOrCreateNewSession()
+            );
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidCredentialException))]
+        [Test]
         public void TestInvalidLogin() {
-            InvalidLoginSessionProvider.GetOrCreateNewSession();
+            Assert.Catch<InvalidCredentialException>(() =>
+                InvalidLoginSessionProvider.GetOrCreateNewSession()
+            );
         }
     }
 }

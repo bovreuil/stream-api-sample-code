@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
 using Betfair.ESAClient.Auth;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Betfair.ESAClient.Test {
-    [TestClass]
+    [TestFixture]
     public class ClientCacheTest : BaseTest {
-        [TestMethod]
+        [Test]
         public void TestUserStory() {
             //1: Create a session provider
             var sessionProvider = new AppKeyAndSessionProvider(AppKeyAndSessionProvider.SSO_HOST_COM,

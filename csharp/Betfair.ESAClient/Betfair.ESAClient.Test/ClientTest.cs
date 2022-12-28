@@ -1,32 +1,33 @@
 ﻿using System;
+using System.IO;
 using Betfair.ESAClient.Protocol;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Betfair.ESAClient.Test {
-    [TestClass]
+    [TestFixture]
     public class ClientTest : BaseTest {
         private Client Client;
 
-        [TestInitialize]
+        [SetUp]
         public void TestInitialize() {
             Client = new Client("stream-api-integration.betfair.com", 443, ValidSessionProvider);
         }
 
-        [TestCleanup]
+        [TearDown]
         public void TestCleanup() {
             Client.Stop();
         }
 
-
-        [TestMethod]
-        [ExpectedException(typeof(TimeoutException))]
+        [Test]
         public void TestInvalidHost() {
-            var invalidClient = new Client("www.betfair.com", 443, ValidSessionProvider);
+            var invalidClient = new Client("www.betfair.com", 443, InvalidHostSessionProvider);
             invalidClient.Timeout = TimeSpan.FromMilliseconds(100);
-            invalidClient.Start();
+            Assert.Catch<IOException>(() =>
+                invalidClient.Start()
+            );
         }
 
-        [TestMethod]
+        [Test]
         public void TestStartStop() {
             Assert.AreEqual(ConnectionStatus.STOPPED, Client.Status);
             Client.Start();
@@ -35,14 +36,14 @@ namespace Betfair.ESAClient.Test {
             Assert.AreEqual(ConnectionStatus.STOPPED, Client.Status);
         }
 
-        [TestMethod]
+        [Test]
         public void TestStartHearbeatStop() {
             Client.Start();
             Client.Heartbeat();
             Client.Stop();
         }
 
-        [TestMethod]
+        [Test]
         public void TestReentrantStartStop() {
             Client.Start();
             Assert.AreEqual(ConnectionStatus.AUTHENTICATED, Client.Status);
@@ -57,7 +58,7 @@ namespace Betfair.ESAClient.Test {
             Assert.AreEqual(ConnectionStatus.STOPPED, Client.Status);
         }
 
-        [TestMethod]
+        [Test]
         public void TestDoubleStartStop() {
             Client.Start();
             Client.Start();
@@ -68,7 +69,7 @@ namespace Betfair.ESAClient.Test {
             Assert.AreEqual(ConnectionStatus.STOPPED, Client.Status);
         }
 
-        [TestMethod]
+        [Test]
         public void TestDisconnectWithNoAutoReconnect() {
             Client.AutoReconnect = false;
             Client.Start();
@@ -82,7 +83,7 @@ namespace Betfair.ESAClient.Test {
             Retry.Action(() => Assert.AreEqual(ConnectionStatus.STOPPED, Client.Status));
         }
 
-        [TestMethod]
+        [Test]
         public void TestDisconnectWithAutoReconnect() {
             Client.ReconnectBackOff = TimeSpan.FromMilliseconds(100);
             Client.Start();

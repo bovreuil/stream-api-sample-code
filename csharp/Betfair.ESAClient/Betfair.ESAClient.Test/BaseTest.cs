@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Betfair.ESAClient.Auth;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Betfair.ESAClient.Test {
     public abstract class BaseTest {
@@ -13,10 +13,10 @@ namespace Betfair.ESAClient.Test {
 
         public TestContext TestContext { get; set; }
 
-        public string SsoHost => (string) TestContext.Properties["SsoHost"];
-        public string AppKey => (string) TestContext.Properties["AppKey"];
-        public string UserName => (string) TestContext.Properties["UserName"];
-        public string Password => (string) TestContext.Properties["Password"];
+        public string SsoHost => (string) TestContext.Parameters["SsoHost"];
+        public string AppKey => (string) TestContext.Parameters["AppKey"];
+        public string UserName => (string) TestContext.Parameters["UserName"];
+        public string Password => (string) TestContext.Parameters["Password"];
 
         public AppKeyAndSessionProvider ValidSessionProvider => new AppKeyAndSessionProvider(SsoHost,
             AppKey,
