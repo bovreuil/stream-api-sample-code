@@ -113,6 +113,7 @@ namespace Betfair.ESASwagger.Model {
             BettingTypeEnum? BettingType = null,
             int? NumberOfActiveRunners = null,
             string EventId = null,
+            string EventName = null,
             bool? CrossMatching = null,
             bool? RunnersVoidable = null,
             bool? TurnInPlayEnabled = null,
@@ -142,6 +143,7 @@ namespace Betfair.ESASwagger.Model {
             this.BettingType = BettingType;
             this.NumberOfActiveRunners = NumberOfActiveRunners;
             this.EventId = EventId;
+            this.EventName = EventName;
             this.CrossMatching = CrossMatching;
             this.RunnersVoidable = RunnersVoidable;
             this.TurnInPlayEnabled = TurnInPlayEnabled;
@@ -243,6 +245,12 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         [DataMember(Name = "eventId", EmitDefaultValue = false)]
         public string EventId { get; set; }
+
+        /// <summary>
+        ///     Gets or Sets EventName
+        /// </summary>
+        [DataMember(Name = "eventName", EmitDefaultValue = false)]
+        public string EventName { get; set; }
 
         /// <summary>
         ///     Gets or Sets CrossMatching
@@ -375,6 +383,9 @@ namespace Betfair.ESASwagger.Model {
             sb.Append("  EventId: ")
                 .Append(EventId)
                 .Append("\n");
+            sb.Append("  EventName: ")
+                .Append(EventName)
+                .Append("\n");
             sb.Append("  CrossMatching: ")
                 .Append(CrossMatching)
                 .Append("\n");
@@ -465,6 +476,7 @@ namespace Betfair.ESASwagger.Model {
                    (BettingType == other.BettingType || BettingType != null && BettingType.Equals(other.BettingType)) &&
                    (NumberOfActiveRunners == other.NumberOfActiveRunners || NumberOfActiveRunners != null && NumberOfActiveRunners.Equals(other.NumberOfActiveRunners)) &&
                    (EventId == other.EventId || EventId != null && EventId.Equals(other.EventId)) &&
+                   (EventName == other.EventName || EventName != null && EventName.Equals(other.EventName)) &&
                    (CrossMatching == other.CrossMatching || CrossMatching != null && CrossMatching.Equals(other.CrossMatching)) &&
                    (RunnersVoidable == other.RunnersVoidable || RunnersVoidable != null && RunnersVoidable.Equals(other.RunnersVoidable)) &&
                    (TurnInPlayEnabled == other.TurnInPlayEnabled || TurnInPlayEnabled != null && TurnInPlayEnabled.Equals(other.TurnInPlayEnabled)) &&
@@ -536,6 +548,9 @@ namespace Betfair.ESASwagger.Model {
 
                 if (EventId != null)
                     hash = hash * 59 + EventId.GetHashCode();
+
+                if (EventName != null)
+                    hash = hash * 59 + EventName.GetHashCode();
 
                 if (CrossMatching != null)
                     hash = hash * 59 + CrossMatching.GetHashCode();
