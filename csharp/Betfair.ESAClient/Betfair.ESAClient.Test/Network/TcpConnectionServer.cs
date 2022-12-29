@@ -19,7 +19,6 @@ namespace Betfair.ESAClient.Test.Network
         private readonly string _host;
         private readonly int _port;
         private bool _stopping;
-        private bool _stopped;
 
         public TcpConnectionServer(string host, int port)
         {
@@ -101,7 +100,6 @@ namespace Betfair.ESAClient.Test.Network
 
                     if (_stopping)
                     {
-                        _stopped = true;
                         _stopping = false;
                     }
                 }
