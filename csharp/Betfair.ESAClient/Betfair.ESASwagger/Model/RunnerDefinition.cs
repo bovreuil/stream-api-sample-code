@@ -50,6 +50,7 @@ namespace Betfair.ESASwagger.Model {
         /// <param name="SortPriority">SortPriority.</param>
         /// <param name="RemovalDate">RemovalDate.</param>
         /// <param name="Id">Selection Id - the id of the runner (selection).</param>
+        /// <param name="Name">Selection Name - the name of the runner (selection).</param>
         /// <param name="Hc">Handicap - the handicap of the runner (selection) (null if not applicable).</param>
         /// <param name="AdjustmentFactor">AdjustmentFactor.</param>
         /// <param name="Bsp">Bsp.</param>
@@ -65,6 +66,7 @@ namespace Betfair.ESASwagger.Model {
             this.SortPriority = SortPriority;
             this.RemovalDate = RemovalDate;
             this.Id = Id;
+            this.Name = Name;
             this.Hc = Hc;
             this.AdjustmentFactor = AdjustmentFactor;
             this.Bsp = Bsp;
@@ -90,6 +92,13 @@ namespace Betfair.ESASwagger.Model {
         /// <value>Selection Id - the id of the runner (selection)</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public long? Id { get; set; }
+
+        /// <summary>
+        ///     Selection Name - the name of the runner (selection)
+        /// </summary>
+        /// <value>Selection Name - the name of the runner (selection)</value>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public long? Name { get; set; }
 
         /// <summary>
         ///     Handicap - the handicap of the runner (selection) (null if not applicable)
@@ -125,6 +134,9 @@ namespace Betfair.ESASwagger.Model {
                 .Append("\n");
             sb.Append("  Id: ")
                 .Append(Id)
+                .Append("\n");
+            sb.Append("  Name: ")
+                .Append(Name)
                 .Append("\n");
             sb.Append("  Hc: ")
                 .Append(Hc)
@@ -174,6 +186,7 @@ namespace Betfair.ESASwagger.Model {
             return (SortPriority == other.SortPriority || SortPriority != null && SortPriority.Equals(other.SortPriority)) &&
                    (RemovalDate == other.RemovalDate || RemovalDate != null && RemovalDate.Equals(other.RemovalDate)) &&
                    (Id == other.Id || Id != null && Id.Equals(other.Id)) &&
+                   (Name == other.Name || Name != null && Name.Equals(other.Name)) &&
                    (Hc == other.Hc || Hc != null && Hc.Equals(other.Hc)) &&
                    (AdjustmentFactor == other.AdjustmentFactor || AdjustmentFactor != null && AdjustmentFactor.Equals(other.AdjustmentFactor)) &&
                    (Bsp == other.Bsp || Bsp != null && Bsp.Equals(other.Bsp)) &&
@@ -199,6 +212,9 @@ namespace Betfair.ESASwagger.Model {
 
                 if (Id != null)
                     hash = hash * 59 + Id.GetHashCode();
+
+                if (Name != null)
+                    hash = hash * 59 + Name.GetHashCode();
 
                 if (Hc != null)
                     hash = hash * 59 + Hc.GetHashCode();
