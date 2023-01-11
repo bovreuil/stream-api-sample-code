@@ -98,7 +98,7 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Selection Name - the name of the runner (selection)</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public long? Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         ///     Handicap - the handicap of the runner (selection) (null if not applicable)
