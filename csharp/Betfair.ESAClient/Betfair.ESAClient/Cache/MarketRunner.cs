@@ -30,10 +30,10 @@ namespace Betfair.ESAClient.Cache
         private LevelPriceSizeLadder _bdatlPrices = new LevelPriceSizeLadder();
 
         // special prices
-        private double _spn;
-        private double _spf;
-        private double _ltp;
-        private double _tv;
+        private decimal _spn;
+        private decimal _spf;
+        private decimal _ltp;
+        private decimal _tv;
         private RunnerDefinition _runnerDefinition;
         private MarketRunnerSnap _snap;
 

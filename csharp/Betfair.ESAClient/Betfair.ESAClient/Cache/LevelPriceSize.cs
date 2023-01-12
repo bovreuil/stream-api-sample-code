@@ -10,17 +10,17 @@ namespace Betfair.ESAClient.Cache {
     /// </summary>
     public class LevelPriceSize {
         private readonly int _level;
-        private readonly double _price;
-        private readonly double _size;
+        private readonly decimal _price;
+        private readonly decimal _size;
         public static readonly IList<LevelPriceSize> EmptyList = new LevelPriceSize[0];
 
-        public LevelPriceSize(List<double?> levelPriceSize) {
+        public LevelPriceSize(List<decimal?> levelPriceSize) {
             _level = (int) levelPriceSize[0];
-            _price = (double) levelPriceSize[1];
-            _size = (double) levelPriceSize[2];
+            _price = (decimal) levelPriceSize[1];
+            _size = (decimal) levelPriceSize[2];
         }
 
-        public LevelPriceSize(int level, double price, double size) {
+        public LevelPriceSize(int level, decimal price, decimal size) {
             _level = level;
             _price = price;
             _size = size;
@@ -30,11 +30,11 @@ namespace Betfair.ESAClient.Cache {
             get { return _level; }
         }
 
-        public double Price {
+        public decimal Price {
             get { return _price; }
         }
 
-        public double Size {
+        public decimal Size {
             get { return _size; }
         }
 

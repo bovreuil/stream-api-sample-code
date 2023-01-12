@@ -11,13 +11,13 @@ namespace Betfair.ESAClient.Cache
     /// </summary>
     public class PriceSizeLadder
     {
-        public static readonly IComparer<double> BACK_ORDER = new ReverseComparer<double>(Comparer<double>.Default);
-        public static readonly IComparer<double> LAY_ORDER = Comparer<double>.Default;
+        public static readonly IComparer<decimal> BACK_ORDER = new ReverseComparer<decimal>(Comparer<decimal>.Default);
+        public static readonly IComparer<decimal> LAY_ORDER = Comparer<decimal>.Default;
 
         /// <summary>
         /// Dictionary of price to PriceSize.
         /// </summary>
-        private readonly SortedDictionary<double, PriceSize> _priceToSize;
+        private readonly SortedDictionary<decimal, PriceSize> _priceToSize;
         private IList<PriceSize> _snap = PriceSize.EmptyList;
 
 
@@ -31,12 +31,12 @@ namespace Betfair.ESAClient.Cache
             return new PriceSizeLadder(LAY_ORDER);
         }
 
-        private PriceSizeLadder(IComparer<double> comparer)
+        private PriceSizeLadder(IComparer<decimal> comparer)
         {
-            _priceToSize = new SortedDictionary<double, PriceSize>(comparer);
+            _priceToSize = new SortedDictionary<decimal, PriceSize>(comparer);
         }
 
-        public IList<PriceSize> OnPriceChange(bool isImage, List<List<double?>> prices)
+        public IList<PriceSize> OnPriceChange(bool isImage, List<List<decimal?>> prices)
         {
             if (isImage)
             {
@@ -46,10 +46,10 @@ namespace Betfair.ESAClient.Cache
             if (prices != null)
             {
                 //changes to apply
-                foreach (List<double?> price in prices)
+                foreach (List<decimal?> price in prices)
                 {
                     PriceSize priceSize = new PriceSize(price);
-                    if (priceSize.Size == 0.0)
+                    if (priceSize.Size == 0.0M)
                     {
                         //zero signifies remove
                         _priceToSize.Remove(priceSize.Price);

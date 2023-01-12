@@ -36,10 +36,10 @@ namespace Betfair.ESAClient.Cache
         public IList<LevelPriceSize> BestDisplayAvailableToBack { get; internal set; }
         public IList<LevelPriceSize> BestDisplayAvailableToLay { get; internal set; }
 
-        public double LastTradedPrice { get; internal set; }
-        public double StartingPriceNear { get; internal set; }
-        public double StartingPriceFar { get; internal set; }
-        public double TradedVolume { get; internal set; }
+        public decimal LastTradedPrice { get; internal set; }
+        public decimal StartingPriceNear { get; internal set; }
+        public decimal StartingPriceFar { get; internal set; }
+        public decimal TradedVolume { get; internal set; }
 
         public override string ToString()
         {

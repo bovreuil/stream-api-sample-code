@@ -21,12 +21,12 @@ namespace Betfair.ESASwagger.Model {
         /// <param name="FullImage">FullImage.</param>
         /// <param name="Ml">Matched Lays - matched amounts by distinct matched price on the Lay side for this runner (selection).</param>
         public OrderRunnerChange(
-            List<List<double?>> Mb = null,
+            List<List<decimal?>> Mb = null,
             List<Order> Uo = null,
             long? Id = null,
-            double? Hc = null,
+            decimal? Hc = null,
             bool? FullImage = null,
-            List<List<double?>> Ml = null) {
+            List<List<decimal?>> Ml = null) {
             this.Mb = Mb;
             this.Uo = Uo;
             this.Id = Id;
@@ -41,7 +41,7 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Matched Backs - matched amounts by distinct matched price on the Back side for this runner (selection)</value>
         [DataMember(Name = "mb", EmitDefaultValue = false)]
-        public List<List<double?>> Mb { get; set; }
+        public List<List<decimal?>> Mb { get; set; }
 
         /// <summary>
         ///     Unmatched Orders - orders on this runner (selection) that are not fully matched
@@ -62,7 +62,7 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Handicap - the handicap of the runner (selection) (null if not applicable)</value>
         [DataMember(Name = "hc", EmitDefaultValue = false)]
-        public double? Hc { get; set; }
+        public decimal? Hc { get; set; }
 
         /// <summary>
         ///     Gets or Sets FullImage
@@ -75,7 +75,7 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Matched Lays - matched amounts by distinct matched price on the Lay side for this runner (selection)</value>
         [DataMember(Name = "ml", EmitDefaultValue = false)]
-        public List<List<double?>> Ml { get; set; }
+        public List<List<decimal?>> Ml { get; set; }
 
         /// <summary>
         ///     Returns the string presentation of the object

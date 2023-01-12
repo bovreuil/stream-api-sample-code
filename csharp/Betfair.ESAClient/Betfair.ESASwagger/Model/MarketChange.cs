@@ -23,7 +23,7 @@ namespace Betfair.ESASwagger.Model {
         public MarketChange(
             List<RunnerChange> Rc = null,
             bool? Img = null,
-            double? Tv = null,
+            decimal? Tv = null,
             bool? Con = null,
             MarketDefinition MarketDefinition = null,
             string Id = null) {
@@ -55,7 +55,7 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>The total amount matched across the market. This value is truncated at 2dp (or null if un-changed)</value>
         [DataMember(Name = "tv", EmitDefaultValue = false)]
-        public double? Tv { get; set; }
+        public decimal? Tv { get; set; }
 
         /// <summary>
         ///     Conflated - have more than a single change been combined (or null if not conflated)

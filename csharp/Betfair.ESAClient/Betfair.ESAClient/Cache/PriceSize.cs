@@ -11,23 +11,23 @@ namespace Betfair.ESAClient.Cache
     /// </summary>
     public class PriceSize
     {
-        private readonly double _price;
-        private readonly double _size;
+        private readonly decimal _price;
+        private readonly decimal _size;
         public static readonly IList<PriceSize> EmptyList = new PriceSize[0];
 
-        public PriceSize(List<double?> priceSize)
+        public PriceSize(List<decimal?> priceSize)
         {
-            _price = (double)priceSize[0];
-            _size = (double)priceSize[1];
+            _price = (decimal)priceSize[0];
+            _size = (decimal)priceSize[1];
         }
 
-        public PriceSize(double price, double size)
+        public PriceSize(decimal price, decimal size)
         {
             _price = price;
             _size = size;
         }
 
-        public double Price
+        public decimal Price
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Betfair.ESAClient.Cache
             }
         }
 
-        public double Size
+        public decimal Size
         {
             get
             {

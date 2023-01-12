@@ -18,7 +18,7 @@ namespace Betfair.ESAClient.Cache
         private readonly string _marketId;
         private readonly Dictionary<RunnerId, MarketRunner> _marketRunners = new Dictionary<RunnerId, MarketRunner>();
         private MarketDefinition _marketDefinition;
-        private double _tv;
+        private decimal _tv;
         private MarketSnap _snap;
 
         public Market(MarketCache marketCache, string marketId)

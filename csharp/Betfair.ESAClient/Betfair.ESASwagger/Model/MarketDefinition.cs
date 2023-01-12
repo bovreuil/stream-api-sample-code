@@ -101,10 +101,10 @@ namespace Betfair.ESASwagger.Model {
             string Venue = null,
             DateTime? SettledTime = null,
             string Timezone = null,
-            double? EachWayDivisor = null,
+            decimal? EachWayDivisor = null,
             List<string> Regulators = null,
             string MarketType = null,
-            double? MarketBaseRate = null,
+            decimal? MarketBaseRate = null,
             int? NumberOfWinners = null,
             string CountryCode = null,
             bool? InPlay = null,
@@ -184,7 +184,7 @@ namespace Betfair.ESASwagger.Model {
         ///     Gets or Sets EachWayDivisor
         /// </summary>
         [DataMember(Name = "eachWayDivisor", EmitDefaultValue = false)]
-        public double? EachWayDivisor { get; set; }
+        public decimal? EachWayDivisor { get; set; }
 
         /// <summary>
         ///     The market regulators.
@@ -203,7 +203,7 @@ namespace Betfair.ESASwagger.Model {
         ///     Gets or Sets MarketBaseRate
         /// </summary>
         [DataMember(Name = "marketBaseRate", EmitDefaultValue = false)]
-        public double? MarketBaseRate { get; set; }
+        public decimal? MarketBaseRate { get; set; }
 
         /// <summary>
         ///     Gets or Sets NumberOfWinners

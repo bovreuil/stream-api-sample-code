@@ -124,23 +124,23 @@ namespace Betfair.ESASwagger.Model {
         /// <param name="Cd">Cancelled Date - the date the order was cancelled (null if the order is not cancelled).</param>
         public Order(
             SideEnum? Side = null,
-            double? Sv = null,
+            decimal? Sv = null,
             PtEnum? Pt = null,
             OtEnum? Ot = null,
-            double? P = null,
-            double? Sc = null,
+            decimal? P = null,
+            decimal? Sc = null,
             string Rc = null,
-            double? S = null,
+            decimal? S = null,
             long? Pd = null,
             string Rac = null,
             long? Md = null,
-            double? Sl = null,
-            double? Avp = null,
-            double? Sm = null,
+            decimal? Sl = null,
+            decimal? Avp = null,
+            decimal? Sm = null,
             string Id = null,
-            double? Bsp = null,
+            decimal? Bsp = null,
             StatusEnum? Status = null,
-            double? Sr = null,
+            decimal? Sr = null,
             long? Cd = null) {
             this.Side = Side;
             this.Sv = Sv;
@@ -169,21 +169,21 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Size Voided - the amount of the order that has been voided</value>
         [DataMember(Name = "sv", EmitDefaultValue = false)]
-        public double? Sv { get; set; }
+        public decimal? Sv { get; set; }
 
         /// <summary>
         ///     Price - the original placed price of the order
         /// </summary>
         /// <value>Price - the original placed price of the order</value>
         [DataMember(Name = "p", EmitDefaultValue = false)]
-        public double? P { get; set; }
+        public decimal? P { get; set; }
 
         /// <summary>
         ///     Size Cancelled - the amount of the order that has been cancelled
         /// </summary>
         /// <value>Size Cancelled - the amount of the order that has been cancelled</value>
         [DataMember(Name = "sc", EmitDefaultValue = false)]
-        public double? Sc { get; set; }
+        public decimal? Sc { get; set; }
 
         /// <summary>
         ///     Regulator Code - the regulator of the order
@@ -197,7 +197,7 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Size - the original placed size of the order</value>
         [DataMember(Name = "s", EmitDefaultValue = false)]
-        public double? S { get; set; }
+        public decimal? S { get; set; }
 
         /// <summary>
         ///     Placed Date - the date the order was placed
@@ -225,21 +225,21 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Size Lapsed - the amount of the order that has been lapsed</value>
         [DataMember(Name = "sl", EmitDefaultValue = false)]
-        public double? Sl { get; set; }
+        public decimal? Sl { get; set; }
 
         /// <summary>
         ///     Average Price Matched - the average price the order was matched at (null if the order is not matched
         /// </summary>
         /// <value>Average Price Matched - the average price the order was matched at (null if the order is not matched</value>
         [DataMember(Name = "avp", EmitDefaultValue = false)]
-        public double? Avp { get; set; }
+        public decimal? Avp { get; set; }
 
         /// <summary>
         ///     Size Matched - the amount of the order that has been matched
         /// </summary>
         /// <value>Size Matched - the amount of the order that has been matched</value>
         [DataMember(Name = "sm", EmitDefaultValue = false)]
-        public double? Sm { get; set; }
+        public decimal? Sm { get; set; }
 
         /// <summary>
         ///     Bet Id - the id of the order
@@ -253,14 +253,14 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>BSP Liability - the BSP liability of the order (null if the order is not a BSP order)</value>
         [DataMember(Name = "bsp", EmitDefaultValue = false)]
-        public double? Bsp { get; set; }
+        public decimal? Bsp { get; set; }
 
         /// <summary>
         ///     Size Remaining - the amount of the order that is remaining unmatched
         /// </summary>
         /// <value>Size Remaining - the amount of the order that is remaining unmatched</value>
         [DataMember(Name = "sr", EmitDefaultValue = false)]
-        public double? Sr { get; set; }
+        public decimal? Sr { get; set; }
 
         /// <summary>
         ///     Cancelled Date - the date the order was cancelled (null if the order is not cancelled)

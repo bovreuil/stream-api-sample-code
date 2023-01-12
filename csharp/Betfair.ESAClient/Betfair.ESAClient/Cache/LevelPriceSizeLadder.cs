@@ -17,7 +17,7 @@ namespace Betfair.ESAClient.Cache
         private readonly SortedDictionary<int, LevelPriceSize> _levelToPriceSize = new SortedDictionary<int, LevelPriceSize>();
         private IList<LevelPriceSize> _snap = LevelPriceSize.EmptyList;
 
-        public IList<LevelPriceSize> OnPriceChange(bool isImage, List<List<double?>> prices)
+        public IList<LevelPriceSize> OnPriceChange(bool isImage, List<List<decimal?>> prices)
         {
             if (isImage)
             {
@@ -28,7 +28,7 @@ namespace Betfair.ESAClient.Cache
             if (prices != null)
             {
                 //changes to apply
-                foreach (List<double?> price in prices)
+                foreach (List<decimal?> price in prices)
                 {
                     LevelPriceSize levelPriceSize = new LevelPriceSize(price);
                     //keep zero's in the ladder as it is fixed depth

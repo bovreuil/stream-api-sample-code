@@ -9,9 +9,9 @@ namespace Betfair.ESAClient.Cache
     public class RunnerId 
     {
         private readonly long _selectionId;
-        private readonly double? _handicap;
+        private readonly decimal? _handicap;
 
-        public RunnerId(long? selectionId, double? handicap)
+        public RunnerId(long? selectionId, decimal? handicap)
         {
             _selectionId = (long)selectionId;
             _handicap = handicap;
@@ -25,7 +25,7 @@ namespace Betfair.ESAClient.Cache
             }
         }
 
-        public double? Handicap
+        public decimal? Handicap
         {
             get
             {

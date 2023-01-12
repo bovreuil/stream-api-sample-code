@@ -30,21 +30,21 @@ namespace Betfair.ESASwagger.Model {
         /// <param name="Hc">Handicap - the handicap of the runner (selection) (null if not applicable).</param>
         /// <param name="Bdatb">Best Display Available To Back (includes virtual prices)- LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove).</param>
         public RunnerChange(
-            double? Tv = null,
-            List<List<double?>> Batb = null,
-            List<List<double?>> Spb = null,
-            List<List<double?>> Bdatl = null,
-            List<List<double?>> Trd = null,
-            double? Spf = null,
-            double? Ltp = null,
-            List<List<double?>> Atb = null,
-            List<List<double?>> Spl = null,
-            double? Spn = null,
-            List<List<double?>> Atl = null,
-            List<List<double?>> Batl = null,
+            decimal? Tv = null,
+            List<List<decimal?>> Batb = null,
+            List<List<decimal?>> Spb = null,
+            List<List<decimal?>> Bdatl = null,
+            List<List<decimal?>> Trd = null,
+            decimal? Spf = null,
+            decimal? Ltp = null,
+            List<List<decimal?>> Atb = null,
+            List<List<decimal?>> Spl = null,
+            decimal? Spn = null,
+            List<List<decimal?>> Atl = null,
+            List<List<decimal?>> Batl = null,
             long? Id = null,
-            double? Hc = null,
-            List<List<double?>> Bdatb = null) {
+            decimal? Hc = null,
+            List<List<decimal?>> Bdatb = null) {
             this.Tv = Tv;
             this.Batb = Batb;
             this.Spb = Spb;
@@ -68,84 +68,84 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>The total amount matched. This value is truncated at 2dp.</value>
         [DataMember(Name = "tv", EmitDefaultValue = false)]
-        public double? Tv { get; set; }
+        public decimal? Tv { get; set; }
 
         /// <summary>
         ///     Best Available To Back - LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)
         /// </summary>
         /// <value>Best Available To Back - LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)</value>
         [DataMember(Name = "batb", EmitDefaultValue = false)]
-        public List<List<double?>> Batb { get; set; }
+        public List<List<decimal?>> Batb { get; set; }
 
         /// <summary>
         ///     Starting Price Back - PriceVol tuple delta of price changes (0 vol is remove)
         /// </summary>
         /// <value>Starting Price Back - PriceVol tuple delta of price changes (0 vol is remove)</value>
         [DataMember(Name = "spb", EmitDefaultValue = false)]
-        public List<List<double?>> Spb { get; set; }
+        public List<List<decimal?>> Spb { get; set; }
 
         /// <summary>
         ///     Best Display Available To Lay (includes virtual prices)- LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)
         /// </summary>
         /// <value>Best Display Available To Lay (includes virtual prices)- LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)</value>
         [DataMember(Name = "bdatl", EmitDefaultValue = false)]
-        public List<List<double?>> Bdatl { get; set; }
+        public List<List<decimal?>> Bdatl { get; set; }
 
         /// <summary>
         ///     Traded - PriceVol tuple delta of price changes (0 vol is remove)
         /// </summary>
         /// <value>Traded - PriceVol tuple delta of price changes (0 vol is remove)</value>
         [DataMember(Name = "trd", EmitDefaultValue = false)]
-        public List<List<double?>> Trd { get; set; }
+        public List<List<decimal?>> Trd { get; set; }
 
         /// <summary>
         ///     Starting Price Far - The far starting price (or null if un-changed)
         /// </summary>
         /// <value>Starting Price Far - The far starting price (or null if un-changed)</value>
         [DataMember(Name = "spf", EmitDefaultValue = false)]
-        public double? Spf { get; set; }
+        public decimal? Spf { get; set; }
 
         /// <summary>
         ///     Last Traded Price - The last traded price (or null if un-changed)
         /// </summary>
         /// <value>Last Traded Price - The last traded price (or null if un-changed)</value>
         [DataMember(Name = "ltp", EmitDefaultValue = false)]
-        public double? Ltp { get; set; }
+        public decimal? Ltp { get; set; }
 
         /// <summary>
         ///     Available To Back - PriceVol tuple delta of price changes (0 vol is remove)
         /// </summary>
         /// <value>Available To Back - PriceVol tuple delta of price changes (0 vol is remove)</value>
         [DataMember(Name = "atb", EmitDefaultValue = false)]
-        public List<List<double?>> Atb { get; set; }
+        public List<List<decimal?>> Atb { get; set; }
 
         /// <summary>
         ///     Starting Price Lay - PriceVol tuple delta of price changes (0 vol is remove)
         /// </summary>
         /// <value>Starting Price Lay - PriceVol tuple delta of price changes (0 vol is remove)</value>
         [DataMember(Name = "spl", EmitDefaultValue = false)]
-        public List<List<double?>> Spl { get; set; }
+        public List<List<decimal?>> Spl { get; set; }
 
         /// <summary>
         ///     Starting Price Near - The far starting price (or null if un-changed)
         /// </summary>
         /// <value>Starting Price Near - The far starting price (or null if un-changed)</value>
         [DataMember(Name = "spn", EmitDefaultValue = false)]
-        public double? Spn { get; set; }
+        public decimal? Spn { get; set; }
 
         /// <summary>
         ///     Available To Lay - PriceVol tuple delta of price changes (0 vol is remove)
         /// </summary>
         /// <value>Available To Lay - PriceVol tuple delta of price changes (0 vol is remove)</value>
         [DataMember(Name = "atl", EmitDefaultValue = false)]
-        public List<List<double?>> Atl { get; set; }
+        public List<List<decimal?>> Atl { get; set; }
 
         /// <summary>
         ///     Best Available To Lay - LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)
         /// </summary>
         /// <value>Best Available To Lay - LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)</value>
         [DataMember(Name = "batl", EmitDefaultValue = false)]
-        public List<List<double?>> Batl { get; set; }
+        public List<List<decimal?>> Batl { get; set; }
 
         /// <summary>
         ///     Selection Id - the id of the runner (selection)
@@ -159,14 +159,14 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Handicap - the handicap of the runner (selection) (null if not applicable)</value>
         [DataMember(Name = "hc", EmitDefaultValue = false)]
-        public double? Hc { get; set; }
+        public decimal? Hc { get; set; }
 
         /// <summary>
         ///     Best Display Available To Back (includes virtual prices)- LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)
         /// </summary>
         /// <value>Best Display Available To Back (includes virtual prices)- LevelPriceVol triple delta of price changes, keyed by level (0 vol is remove)</value>
         [DataMember(Name = "bdatb", EmitDefaultValue = false)]
-        public List<List<double?>> Bdatb { get; set; }
+        public List<List<decimal?>> Bdatb { get; set; }
 
         /// <summary>
         ///     Returns the string presentation of the object

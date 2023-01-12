@@ -8,11 +8,11 @@ namespace Betfair.ESAClient.Cache
 {
     public class Utils
     {
-        public static double SelectPrice(bool isImage, ref double currentPrice, double? newPrice)
+        public static decimal SelectPrice(bool isImage, ref decimal currentPrice, decimal? newPrice)
         {
             if (isImage)
             {
-                currentPrice = newPrice ?? 0.0;
+                currentPrice = newPrice ?? 0.0M;
             }
             else
             {

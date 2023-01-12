@@ -59,9 +59,9 @@ namespace Betfair.ESASwagger.Model {
             int? SortPriority = null,
             DateTime? RemovalDate = null,
             long? Id = null,
-            double? Hc = null,
-            double? AdjustmentFactor = null,
-            double? Bsp = null,
+            decimal? Hc = null,
+            decimal? AdjustmentFactor = null,
+            decimal? Bsp = null,
             StatusEnum? Status = null) {
             this.SortPriority = SortPriority;
             this.RemovalDate = RemovalDate;
@@ -105,19 +105,19 @@ namespace Betfair.ESASwagger.Model {
         /// </summary>
         /// <value>Handicap - the handicap of the runner (selection) (null if not applicable)</value>
         [DataMember(Name = "hc", EmitDefaultValue = false)]
-        public double? Hc { get; set; }
+        public decimal? Hc { get; set; }
 
         /// <summary>
         ///     Gets or Sets AdjustmentFactor
         /// </summary>
         [DataMember(Name = "adjustmentFactor", EmitDefaultValue = false)]
-        public double? AdjustmentFactor { get; set; }
+        public decimal? AdjustmentFactor { get; set; }
 
         /// <summary>
         ///     Gets or Sets Bsp
         /// </summary>
         [DataMember(Name = "bsp", EmitDefaultValue = false)]
-        public double? Bsp { get; set; }
+        public decimal? Bsp { get; set; }
 
         /// <summary>
         ///     Returns the string presentation of the object
