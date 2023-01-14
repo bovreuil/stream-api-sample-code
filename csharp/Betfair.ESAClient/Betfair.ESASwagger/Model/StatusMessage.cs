@@ -113,6 +113,7 @@ namespace Betfair.ESASwagger.Model {
         }
 
 
+#pragma warning disable CS0108, CS0114
         /// <summary>
         ///     The operation type
         /// </summary>
@@ -126,6 +127,7 @@ namespace Betfair.ESASwagger.Model {
         /// <value>Client generated unique id to link request with response (like json rpc)</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int? Id { get; set; }
+#pragma warning disable CS0108, CS0114
 
         /// <summary>
         ///     Additional message in case of a failure
