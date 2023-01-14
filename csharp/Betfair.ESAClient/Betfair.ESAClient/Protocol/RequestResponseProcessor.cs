@@ -1,16 +1,11 @@
-﻿using Betfair.ESAClient.Cache;
-using Betfair.ESASwagger.Model;
+﻿using Betfair.ESASwagger.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Betfair.ESAClient.Auth;
 
 namespace Betfair.ESAClient.Protocol
 {

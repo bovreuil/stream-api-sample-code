@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Betfair.ESASwagger.Model;
 
 namespace Betfair.ESAClient.Cache
