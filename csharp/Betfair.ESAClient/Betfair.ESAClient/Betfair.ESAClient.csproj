@@ -1,95 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6F11E1B-DA85-41BC-9DEE-B941D3C6A805}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Betfair.ESAClient</RootNamespace>
-    <AssemblyName>Betfair.ESAClient</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Auth\AppKeyAndSession.cs" />
-    <Compile Include="Auth\AppKeyAndSessionProvider.cs" />
-    <Compile Include="Auth\DummyAppKeyAndSessionProvider.cs" />
-    <Compile Include="Auth\IAppKeyAndSessionProvider.cs" />
-    <Compile Include="Cache\OrderMarketSnap.cs" />
-    <Compile Include="Cache\LevelPriceSize.cs" />
-    <Compile Include="Cache\Market.cs" />
-    <Compile Include="Cache\MarketRunnerSnap.cs" />
-    <Compile Include="Cache\MarketSnap.cs" />
-    <Compile Include="Cache\OrderCache.cs" />
-    <Compile Include="Cache\MarketCache.cs" />
-    <Compile Include="Cache\MarketRunner.cs" />
-    <Compile Include="Cache\LevelPriceSizeLadder.cs" />
-    <Compile Include="Cache\OrderMarket.cs" />
-    <Compile Include="Cache\OrderMarketRunner.cs" />
-    <Compile Include="Cache\OrderMarketRunnerSnap.cs" />
-    <Compile Include="Cache\PriceSizeLadder.cs" />
-    <Compile Include="Cache\MarketRunnerPrices.cs" />
-    <Compile Include="Cache\PriceSize.cs" />
-    <Compile Include="Cache\ReverseComparer.cs" />
-    <Compile Include="Cache\RunnerId.cs" />
-    <Compile Include="Cache\Utils.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="ClientCache.cs" />
-    <Compile Include="Protocol\ConnectionStatus.cs" />
-    <Compile Include="Protocol\IChangeMessageHandler.cs" />
-    <Compile Include="Protocol\RequestResponse.cs" />
-    <Compile Include="Protocol\StatusException.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Protocol\ChangeMessage.cs" />
-    <Compile Include="Protocol\ChangeMessageFactory.cs" />
-    <Compile Include="Protocol\ChangeType.cs" />
-    <Compile Include="Protocol\RequestResponseProcessor.cs" />
-    <Compile Include="Protocol\SegmentationType.cs" />
-    <Compile Include="Protocol\SubscriptionHandler.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Runtime.Serialization.Primitives">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile111\System.Runtime.Serialization.Primitives.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Betfair.ESASwagger\Betfair.ESASwagger.csproj">
-      <Project>{84a4f60c-5348-4ea0-849c-e6a1b204ec28}</Project>
-      <Name>Betfair.ESASwagger</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Betfair.ESASwagger\Betfair.ESASwagger.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using Betfair.ESAClient;
 using Betfair.ESAClient.Auth;
 using Betfair.ESAClient.Cache;

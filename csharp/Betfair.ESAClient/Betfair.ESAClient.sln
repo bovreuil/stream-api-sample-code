@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESAClient", "Betfair.ESAClient\Betfair.ESAClient.csproj", "{C6F11E1B-DA85-41BC-9DEE-B941D3C6A805}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESAClient", "Betfair.ESAClient\Betfair.ESAClient.csproj", "{998594BC-F941-4771-AD00-1C21A3D42864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESAConsoleApp", "Betfair.ESAConsoleApp\Betfair.ESAConsoleApp.csproj", "{5099FDF2-C990-4334-A305-33C30F1C9950}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESAClient.Test", "Betfair.ESAClient.Test\Betfair.ESAClient.Test.csproj", "{EBABCFC9-B18D-408F-A22D-B796FA877078}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESAClient.Test", "Betfair.ESAClient.Test\Betfair.ESAClient.Test.csproj", "{19CC59D3-3664-4AA7-919A-CB39470976EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESASwagger", "Betfair.ESASwagger\Betfair.ESASwagger.csproj", "{D8DA240D-1230-4DC6-A5D4-CB1FD5E62DEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESASwagger", "Betfair.ESASwagger\Betfair.ESASwagger.csproj", "{84A4F60C-5348-4EA0-849C-E6A1B204EC28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betfair.ESAConsoleApp", "Betfair.ESAConsoleApp\Betfair.ESAConsoleApp.csproj", "{E161B837-6CD3-45EE-A3A3-9A7195228876}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C6F11E1B-DA85-41BC-9DEE-B941D3C6A805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6F11E1B-DA85-41BC-9DEE-B941D3C6A805}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6F11E1B-DA85-41BC-9DEE-B941D3C6A805}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6F11E1B-DA85-41BC-9DEE-B941D3C6A805}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5099FDF2-C990-4334-A305-33C30F1C9950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5099FDF2-C990-4334-A305-33C30F1C9950}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5099FDF2-C990-4334-A305-33C30F1C9950}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5099FDF2-C990-4334-A305-33C30F1C9950}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19CC59D3-3664-4AA7-919A-CB39470976EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19CC59D3-3664-4AA7-919A-CB39470976EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19CC59D3-3664-4AA7-919A-CB39470976EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19CC59D3-3664-4AA7-919A-CB39470976EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84A4F60C-5348-4EA0-849C-E6A1B204EC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84A4F60C-5348-4EA0-849C-E6A1B204EC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84A4F60C-5348-4EA0-849C-E6A1B204EC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84A4F60C-5348-4EA0-849C-E6A1B204EC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998594BC-F941-4771-AD00-1C21A3D42864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998594BC-F941-4771-AD00-1C21A3D42864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998594BC-F941-4771-AD00-1C21A3D42864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998594BC-F941-4771-AD00-1C21A3D42864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBABCFC9-B18D-408F-A22D-B796FA877078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBABCFC9-B18D-408F-A22D-B796FA877078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBABCFC9-B18D-408F-A22D-B796FA877078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBABCFC9-B18D-408F-A22D-B796FA877078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DA240D-1230-4DC6-A5D4-CB1FD5E62DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DA240D-1230-4DC6-A5D4-CB1FD5E62DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DA240D-1230-4DC6-A5D4-CB1FD5E62DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DA240D-1230-4DC6-A5D4-CB1FD5E62DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E161B837-6CD3-45EE-A3A3-9A7195228876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E161B837-6CD3-45EE-A3A3-9A7195228876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E161B837-6CD3-45EE-A3A3-9A7195228876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E161B837-6CD3-45EE-A3A3-9A7195228876}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
