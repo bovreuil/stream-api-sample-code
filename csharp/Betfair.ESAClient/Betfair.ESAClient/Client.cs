@@ -2,14 +2,10 @@
 using Betfair.ESAClient.Auth;
 using Betfair.ESAClient.Protocol;
 using Betfair.ESASwagger.Model;
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Betfair.ESAClient
 {

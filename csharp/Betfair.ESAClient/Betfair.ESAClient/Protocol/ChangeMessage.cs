@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Betfair.ESAClient.Protocol
+﻿namespace Betfair.ESAClient.Protocol
 {
     /// <summary>
     /// Adapted version of a change message.

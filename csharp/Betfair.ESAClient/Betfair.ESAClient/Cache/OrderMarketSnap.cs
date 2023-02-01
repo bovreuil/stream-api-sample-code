@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Betfair.ESAClient.Cache {
+﻿namespace Betfair.ESAClient.Cache {
     /// <summary>
     /// Thread safe atomic snapshot of a market.
     /// Reference only changes if the snapshot changes:

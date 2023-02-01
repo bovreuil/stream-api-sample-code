@@ -1,5 +1,3 @@
-using System;
-
 namespace Betfair.ESAClient.Auth
 {
     public class DummyAppKeyAndSessionProvider : IAppKeyAndSessionProvider

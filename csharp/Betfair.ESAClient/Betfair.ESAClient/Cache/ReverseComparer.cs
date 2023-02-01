@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Betfair.ESAClient.Cache
+﻿namespace Betfair.ESAClient.Cache
 {
     public class ReverseComparer<T> : IComparer<T>
     {

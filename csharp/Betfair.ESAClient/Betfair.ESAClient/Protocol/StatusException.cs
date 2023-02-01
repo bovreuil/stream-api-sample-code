@@ -1,5 +1,4 @@
 ﻿using Betfair.ESASwagger.Model;
-using System;
 
 namespace Betfair.ESAClient.Protocol
 {

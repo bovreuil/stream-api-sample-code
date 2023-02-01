@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Betfair.ESAClient.Cache
+﻿namespace Betfair.ESAClient.Cache
 {
     /// <summary>
     /// A price size ladder with copy on write snapshot

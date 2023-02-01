@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Betfair.ESAClient.Cache
+﻿namespace Betfair.ESAClient.Cache
 {
     /// <summary>
     /// Atomic snap of the prices associated with a runner.

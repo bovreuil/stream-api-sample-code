@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Betfair.ESAClient.Auth {
+﻿namespace Betfair.ESAClient.Auth {
     /// <summary>
     /// Wraps an appkey & it's current session
     /// </summary>

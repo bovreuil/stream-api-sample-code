@@ -1,6 +1,5 @@
 ﻿using Betfair.ESAClient.Cache;
 using Betfair.ESAClient.Protocol;
-using System.Collections.Generic;
 using Betfair.ESASwagger.Model;
 
 namespace Betfair.ESAClient
