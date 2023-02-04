@@ -1,18 +1,17 @@
-﻿namespace Betfair.ESAClient.Cache
+﻿namespace Betfair.ESAClient.Cache;
+
+public class Utils
 {
-    public class Utils
+    public static decimal SelectPrice(bool isImage, ref decimal currentPrice, decimal? newPrice)
     {
-        public static decimal SelectPrice(bool isImage, ref decimal currentPrice, decimal? newPrice)
+        if (isImage)
         {
-            if (isImage)
-            {
-                currentPrice = newPrice ?? 0.0M;
-            }
-            else
-            {
-                currentPrice = newPrice ?? currentPrice;
-            }
-            return currentPrice;
+            currentPrice = newPrice ?? 0.0M;
         }
+        else
+        {
+            currentPrice = newPrice ?? currentPrice;
+        }
+        return currentPrice;
     }
 }

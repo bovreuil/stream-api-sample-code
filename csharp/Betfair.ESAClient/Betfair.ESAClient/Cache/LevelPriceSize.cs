@@ -1,39 +1,39 @@
-﻿namespace Betfair.ESAClient.Cache {
-    /// <summary>
-    /// Immutable triple of level, price size.
-    /// </summary>
-    public class LevelPriceSize {
-        private readonly int _level;
-        private readonly decimal _price;
-        private readonly decimal _size;
-        public static readonly IList<LevelPriceSize> EmptyList = new LevelPriceSize[0];
+﻿namespace Betfair.ESAClient.Cache;
 
-        public LevelPriceSize(List<decimal?> levelPriceSize) {
-            _level = (int) levelPriceSize[0];
-            _price = (decimal) levelPriceSize[1];
-            _size = (decimal) levelPriceSize[2];
-        }
+/// <summary>
+/// Immutable triple of level, price size.
+/// </summary>
+public class LevelPriceSize {
+    private readonly int _level;
+    private readonly decimal _price;
+    private readonly decimal _size;
+    public static readonly IList<LevelPriceSize> EmptyList = new LevelPriceSize[0];
 
-        public LevelPriceSize(int level, decimal price, decimal size) {
-            _level = level;
-            _price = price;
-            _size = size;
-        }
+    public LevelPriceSize(List<decimal?> levelPriceSize) {
+        _level = (int) levelPriceSize[0];
+        _price = (decimal) levelPriceSize[1];
+        _size = (decimal) levelPriceSize[2];
+    }
 
-        public int Level {
-            get { return _level; }
-        }
+    public LevelPriceSize(int level, decimal price, decimal size) {
+        _level = level;
+        _price = price;
+        _size = size;
+    }
 
-        public decimal Price {
-            get { return _price; }
-        }
+    public int Level {
+        get { return _level; }
+    }
 
-        public decimal Size {
-            get { return _size; }
-        }
+    public decimal Price {
+        get { return _price; }
+    }
 
-        public override string ToString() {
-            return _level + ": " + _size + "@" + _price;
-        }
+    public decimal Size {
+        get { return _size; }
+    }
+
+    public override string ToString() {
+        return _level + ": " + _size + "@" + _price;
     }
 }

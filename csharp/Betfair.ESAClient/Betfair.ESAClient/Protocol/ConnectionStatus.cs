@@ -1,11 +1,10 @@
-﻿namespace Betfair.ESAClient.Protocol
+﻿namespace Betfair.ESAClient.Protocol;
+
+public enum ConnectionStatus
 {
-    public enum ConnectionStatus
-    {
-        STOPPED,
-        CONNECTED,
-        AUTHENTICATED,
-        SUBSCRIBED,
-        DISCONNECTED,
-    }
+    STOPPED,
+    CONNECTED,
+    AUTHENTICATED,
+    SUBSCRIBED,
+    DISCONNECTED,
 }

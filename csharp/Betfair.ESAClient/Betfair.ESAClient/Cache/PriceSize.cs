@@ -1,45 +1,44 @@
-﻿namespace Betfair.ESAClient.Cache
+﻿namespace Betfair.ESAClient.Cache;
+
+/// <summary>
+/// Immutable tuple of price, size
+/// </summary>
+public class PriceSize
 {
-    /// <summary>
-    /// Immutable tuple of price, size
-    /// </summary>
-    public class PriceSize
+    private readonly decimal _price;
+    private readonly decimal _size;
+    public static readonly IList<PriceSize> EmptyList = new PriceSize[0];
+
+    public PriceSize(List<decimal?> priceSize)
     {
-        private readonly decimal _price;
-        private readonly decimal _size;
-        public static readonly IList<PriceSize> EmptyList = new PriceSize[0];
+        _price = (decimal)priceSize[0];
+        _size = (decimal)priceSize[1];
+    }
 
-        public PriceSize(List<decimal?> priceSize)
-        {
-            _price = (decimal)priceSize[0];
-            _size = (decimal)priceSize[1];
-        }
+    public PriceSize(decimal price, decimal size)
+    {
+        _price = price;
+        _size = size;
+    }
 
-        public PriceSize(decimal price, decimal size)
+    public decimal Price
+    {
+        get
         {
-            _price = price;
-            _size = size;
+            return _price;
         }
+    }
 
-        public decimal Price
+    public decimal Size
+    {
+        get
         {
-            get
-            {
-                return _price;
-            }
+            return _size;
         }
+    }
 
-        public decimal Size
-        {
-            get
-            {
-                return _size;
-            }
-        }
-
-        public override string ToString()
-        {
-            return _size + "@" + _price;
-        }
+    public override string ToString()
+    {
+        return _size + "@" + _price;
     }
 }
