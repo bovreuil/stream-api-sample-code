@@ -5,7 +5,7 @@
     <TestRunParameters>
         <Parameter name="UserName" value="${UserName}"/>
         <Parameter name="Password" value="${Password}"/>
-        <Parameter name="AppKey" value="${AppKey}"/>
+        <Parameter name="AppKey" value="AppKey"/>
         <Parameter name="SsoHost" value="identitysso.betfair.com"/>
     </TestRunParameters>
 </RunSettings>

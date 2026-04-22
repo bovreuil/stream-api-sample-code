@@ -167,12 +167,12 @@ public class MarketChangedEventArgs : EventArgs
     /// <summary>
     /// The raw change message that was just applied
     /// </summary>
-    public MarketChange Change { get; internal set; }
+    public MarketChange Change { get; set; }
 
     /// <summary>
     /// The market changed - this is reference invariant
     /// </summary>
-    public Market Market { get; internal set; }
+    public Market Market { get; set; }
 
     /// <summary>
     /// Takes or returns an existing immutable snap of the market.

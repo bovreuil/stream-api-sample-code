@@ -21,7 +21,7 @@ public class Market
         _marketId = marketId;
     }
 
-    internal void OnMarketChange(MarketChange marketChange)
+    public void OnMarketChange(MarketChange marketChange)
     {
         //initial image means we need to wipe our data
         bool isImage = marketChange.Img == true;
