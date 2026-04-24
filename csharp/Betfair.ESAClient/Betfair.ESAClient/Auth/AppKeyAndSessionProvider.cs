@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Net;
 using System.Security.Authentication;
 
 namespace Betfair.ESAClient.Auth;
@@ -76,20 +75,19 @@ public class AppKeyAndSessionProvider : IAppKeyAndSessionProvider
         try {
             string uri = string.Format("https://{0}/api/login?username={1}&password={2}",
                 _host,
-                _username,
-                _password);
+                Uri.EscapeDataString(_username),
+                Uri.EscapeDataString(_password));
 
-            HttpWebRequest loginRequest = (HttpWebRequest) WebRequest.Create(uri);
+            using var httpClient = new HttpClient { Timeout = Timeout };
+            using var loginRequest = new HttpRequestMessage(HttpMethod.Post, uri);
             loginRequest.Headers.Add("X-Application", _appkey);
-            loginRequest.Accept = "application/json";
-            loginRequest.Method = "POST";
-            loginRequest.Timeout = (int) Timeout.TotalMilliseconds;
-            WebResponse thePage = loginRequest.GetResponse();
-            using (StreamReader reader = new StreamReader(thePage.GetResponseStream())) {
-                string response = reader.ReadToEnd();
-                Trace.TraceInformation("{0}: Response: {1}", _host, response);
-                sessionDetails = JsonConvert.DeserializeObject<SessionDetails>(response);
-            }
+            loginRequest.Headers.Accept.ParseAdd("application/json");
+
+            using var loginResponse = httpClient.Send(loginRequest);
+            loginResponse.EnsureSuccessStatusCode();
+            string response = loginResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            Trace.TraceInformation("{0}: Response: {1}", _host, response);
+            sessionDetails = JsonConvert.DeserializeObject<SessionDetails>(response);
         }
         catch (Exception e) {
             throw new IOException("SSO Authentication - call failed:", e);

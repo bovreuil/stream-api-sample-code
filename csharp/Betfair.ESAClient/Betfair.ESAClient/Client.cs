@@ -344,7 +344,7 @@ public class Client
             }
             else
             {
-                throw statusException;
+                throw;
             }
         }
     }
@@ -567,7 +567,7 @@ public class Client
             Trace.TraceError("Error sending to socket - disconnecting", e);
             //Foceably break the socket which will then trigger a reconnect if configured
             Disconnect();
-            throw e;
+            throw;
         }
     }
 
