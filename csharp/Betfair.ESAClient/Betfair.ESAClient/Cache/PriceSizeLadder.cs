@@ -43,7 +43,7 @@ public class PriceSizeLadder
             foreach (List<decimal?> price in prices)
             {
                 PriceSize priceSize = new PriceSize(price);
-                if (priceSize.Size == 0.0M)
+                if (priceSize.Size == 0M)
                 {
                     //zero signifies remove
                     _priceToSize.Remove(priceSize.Price);

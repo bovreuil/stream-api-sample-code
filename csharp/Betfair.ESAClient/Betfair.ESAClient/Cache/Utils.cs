@@ -6,7 +6,7 @@ public class Utils
     {
         if (isImage)
         {
-            currentPrice = newPrice ?? 0.0M;
+            currentPrice = newPrice ?? 0M;
         }
         else
         {

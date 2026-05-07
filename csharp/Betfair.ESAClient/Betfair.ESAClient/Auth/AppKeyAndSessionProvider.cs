@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Security.Authentication;
 
 namespace Betfair.ESAClient.Auth;
@@ -9,6 +10,11 @@ namespace Betfair.ESAClient.Auth;
 /// </summary>
 public class AppKeyAndSessionProvider : IAppKeyAndSessionProvider
 {
+    /// <summary>
+    /// Proof-of-build marker for the Interactive Login contract (form body, not query string).
+    /// </summary>
+    public const string SsoLoginImplementationId = "form-urlencoded-post-body-v2";
+
     private string _appkey;
     private string _host;
     private string _password;
@@ -72,33 +78,53 @@ public class AppKeyAndSessionProvider : IAppKeyAndSessionProvider
             _appkey,
             _username);
         SessionDetails sessionDetails;
+        string rawResponse = null;
         try {
-            string uri = string.Format("https://{0}/api/login?username={1}&password={2}",
-                _host,
-                Uri.EscapeDataString(_username),
-                Uri.EscapeDataString(_password));
+            var asmPath = typeof(AppKeyAndSessionProvider).Assembly.Location;
+            Console.WriteLine(
+                "[Betfair ESA] SSO login implementation=" + SsoLoginImplementationId +
+                "; assembly=" + asmPath);
+
+            // Betfair docs: POST application/x-www-form-urlencoded body (not query string); required for special chars in passwords.
+            // https://betfair-developer-docs.atlassian.net/wiki/spaces/1smk3cen4v3lu3yomq5qye0ni/pages/2687772/Interactive+Login+-+API+Endpoint
+            var uri = $"https://{_host}/api/login";
+            Console.WriteLine("[Betfair ESA] POST " + uri + " (Content-Type: application/x-www-form-urlencoded body)");
 
             using var httpClient = new HttpClient { Timeout = Timeout };
             using var loginRequest = new HttpRequestMessage(HttpMethod.Post, uri);
             loginRequest.Headers.Add("X-Application", _appkey);
             loginRequest.Headers.Accept.ParseAdd("application/json");
+            loginRequest.Content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                ["username"] = _username,
+                ["password"] = _password
+            });
 
             using var loginResponse = httpClient.Send(loginRequest);
             loginResponse.EnsureSuccessStatusCode();
-            string response = loginResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-            Trace.TraceInformation("{0}: Response: {1}", _host, response);
-            sessionDetails = JsonConvert.DeserializeObject<SessionDetails>(response);
+            rawResponse = loginResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            Trace.TraceInformation("{0}: Response: {1}", _host, rawResponse);
+            sessionDetails = JsonConvert.DeserializeObject<SessionDetails>(rawResponse);
         }
         catch (Exception e) {
             throw new IOException("SSO Authentication - call failed:", e);
         }
 
-        //got a response - decode
-        if (sessionDetails != null && "SUCCESS".Equals(sessionDetails.status)) {
-            _session = new AppKeyAndSession(_appkey, sessionDetails.token);
+        var status = sessionDetails?.Status ?? string.Empty;
+        var token = sessionDetails?.Token;
+        var loginOk = sessionDetails is not null &&
+                      !string.IsNullOrEmpty(token) &&
+                      ("SUCCESS".Equals(status, StringComparison.OrdinalIgnoreCase) ||
+                       "LIMITED_ACCESS".Equals(status, StringComparison.OrdinalIgnoreCase));
+
+        if (loginOk) {
+            _session = new AppKeyAndSession(_appkey, token);
         }
         else {
-            throw new InvalidCredentialException("SSO Authentication - response is fail: " + sessionDetails.error);
+            var err = sessionDetails?.Error ?? "(null sessionDetails)";
+            Console.WriteLine("[Betfair ESA] SSO JSON response: " + (rawResponse ?? "(no body)"));
+            throw new InvalidCredentialException(
+                "SSO Authentication - response is fail: " + err + " (status=" + status + ")");
         }
 
         return _session;
@@ -113,9 +139,17 @@ public class AppKeyAndSessionProvider : IAppKeyAndSessionProvider
     }
 }
 
-class SessionDetails {
-    public string token;
-    public string product;
-    public string status;
-    public string error;
+internal sealed class SessionDetails
+{
+    [JsonProperty("token")]
+    public string Token { get; set; }
+
+    [JsonProperty("product")]
+    public string Product { get; set; }
+
+    [JsonProperty("status")]
+    public string Status { get; set; }
+
+    [JsonProperty("error")]
+    public string Error { get; set; }
 }
