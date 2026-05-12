@@ -33,10 +33,22 @@ public class Market
         }
         if (marketChange.Rc != null)
         {
-            //runners changed
+            // Runners changed. When img=true, Betfair may send several rc rows for the same selection in one
+            // MarketChange (split image). Only the first fragment per runner should use full image semantics
+            // (clear ladders then apply); later fragments merge as deltas so a tail ATB-only row does not
+            // clear TRD established by an earlier fragment on the same change.
+            HashSet<RunnerId> imageLeaderApplied = null;
+            if (isImage)
+                imageLeaderApplied = new HashSet<RunnerId>();
+
             foreach (RunnerChange runnerChange in marketChange.Rc)
             {
-                OnPriceChange(isImage, runnerChange);
+                var runnerKey = new RunnerId(runnerChange.Id, runnerChange.Hc);
+                var fragmentIsImage = isImage;
+                if (isImage && !imageLeaderApplied.Add(runnerKey))
+                    fragmentIsImage = false;
+
+                OnPriceChange(fragmentIsImage, runnerChange);
             }
         }
 
