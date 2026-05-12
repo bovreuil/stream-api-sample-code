@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Net.Http;
 using System.Security.Authentication;
 
 namespace Betfair.ESAClient.Auth;
