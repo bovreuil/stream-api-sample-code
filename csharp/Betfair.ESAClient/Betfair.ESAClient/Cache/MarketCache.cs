@@ -156,6 +156,30 @@ public class MarketCache
             return _markets.Count;
         }
     }
+
+    /// <summary>Clears all cached markets (for example start of a new subscription image).</summary>
+    public void ClearAllMarkets()
+    {
+        _markets.Clear();
+    }
+
+    /// <summary>Returns the cached market, creating it when absent.</summary>
+    public Market GetOrCreateMarket(string marketId)
+    {
+        return _markets.GetOrAdd(marketId, id => new Market(this, id));
+    }
+
+    /// <summary>Removes a market from the cache when closed.</summary>
+    public bool TryRemoveMarket(string marketId)
+    {
+        return _markets.TryRemove(marketId, out _);
+    }
+
+    /// <summary>Records a conflated market change from the stream.</summary>
+    public void NoteConflatedMarketChange()
+    {
+        ConflatedCount++;
+    }
 }
 
 public delegate void MarketChangedEventHandler(object sender, MarketChangedEventArgs e);
